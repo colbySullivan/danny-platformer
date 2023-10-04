@@ -36,15 +36,14 @@ public class Character : KinematicBody2D
 		{
 			_velocity.y += Speed;
 			_animatedSprite.Play("down");
-		}
-			
+		}	
 		if (!insideWalls && Input.IsActionPressed("ui_select"))
 		{
 			_velocity.y = JumpImpulse;
 		}
 		// Once on floor stop gravity
 		else if(insideWalls){
-			_velocity.y += 50;
+			_velocity.y += 100;
 		}
 	}
 
@@ -61,11 +60,8 @@ public class Character : KinematicBody2D
 	}
 	private void _on_Ball_body_entered(object body)
 	{
-		if (body is Ball ball){
-			// Ball resets when player is hit
-			EmitSignal("playerHit");
-			GD.Print("Collided");
-		}
-		
+		// Ball resets when player is hit
+		EmitSignal("playerHit");
+		GD.Print("Collided");
 	}
 }

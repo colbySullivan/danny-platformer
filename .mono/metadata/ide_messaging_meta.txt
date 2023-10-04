@@ -1,2 +1,2 @@
-﻿56747
-/private/var/folders/77/50kz2nvd7gs_2_0hbjskvkr80000gn/T/AppTranslocation/59C41A63-E848-4516-BF82-F49767DEEEEE/d/Godot C.app/Contents/MacOS/Godot
+﻿57800
+/private/var/folders/77/50kz2nvd7gs_2_0hbjskvkr80000gn/T/AppTranslocation/631BB4CE-313B-4999-B9DC-F5D81C0529C8/d/Godot C.app/Contents/MacOS/Godot

@@ -28,6 +28,16 @@ public class KBExample : KinematicBody2D
 	public override void _PhysicsProcess(float delta)
 	{
 		GetInput();
-		MoveAndCollide(_velocity * delta);
+		//MoveAndCollide(_velocity * delta);
+		var collision = MoveAndCollide(_velocity * (float)delta);
+		if (collision != null)
+		{
+			Speed = 0;
+			GD.Print("I collided with ", ((Node)collision.GetCollider()).Name);
+		}
+	}
+	private void _on_Ball_body_entered(object body)
+	{
+		Speed = 0;
 	}
 }

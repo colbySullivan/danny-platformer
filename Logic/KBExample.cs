@@ -59,5 +59,6 @@ public class KBExample : KinematicBody2D
 	{
 		// Ball resets when player is hit
 		EmitSignal("playerHit");
+		GD.Print("Collided");
 	}
 }

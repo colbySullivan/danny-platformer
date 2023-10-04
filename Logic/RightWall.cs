@@ -12,14 +12,4 @@ public class RightWall : Area2D
 			ball.direction = -(ball.direction - new Vector2(0,_bounceDirection)).Normalized();
 		}
 	}
-
-
-private void OnWallAreaEntered(object area)
-{
-	if (area is Ball ball)
-		{
-			// Ball went off the side of the screen, reset it.
-			ball.Reset();
-		}
-}
 }

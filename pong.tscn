@@ -6,7 +6,7 @@
 [ext_resource path="res://Logic/Ball.cs" type="Script" id=4]
 [ext_resource path="res://ball.png" type="Texture" id=5]
 [ext_resource path="res://separator.png" type="Texture" id=6]
-[ext_resource path="res://Logic/KBExample.cs" type="Script" id=7]
+[ext_resource path="res://Logic/Character.cs" type="Script" id=7]
 [ext_resource path="res://Logic/CeilingFloor.cs" type="Script" id=8]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -128,8 +128,10 @@ animations = [ {
 [node name="Pong" type="Node2D"]
 
 [node name="Background" type="ColorRect" parent="."]
-margin_right = 640.0
-margin_bottom = 400.0
+margin_left = 1.0
+margin_top = 2.0
+margin_right = 641.0
+margin_bottom = 402.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="Ball" type="Area2D" parent="."]
@@ -186,6 +188,8 @@ position = Vector2( -0.5, 0 )
 shape = SubResource( 4 )
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
@@ -193,9 +197,24 @@ position = Vector2( 245, 265 )
 shape = SubResource( 5 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="KinematicBody2D"]
-position = Vector2( 246, 266 )
+position = Vector2( 244, 264 )
 frames = SubResource( 10 )
 animation = "up"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+constant_linear_velocity = Vector2( 100, 0 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 313, 407 )
+scale = Vector2( 18.1047, 0.837587 )
+polygon = PoolVector2Array( 19, 17, -18, 16, -18.0414, -12.8546, 18.9209, -16.1916 )
+
+[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
+position = Vector2( -0.403152, 0.751016 )
+scale = Vector2( 0.99005, 0.986333 )
+polygon = PoolVector2Array( -18.0032, -15.2868, 19.2082, -16.4973, 19.1524, 17.3953, -18.0032, 16.3411 )
 
 [connection signal="body_entered" from="Ball" to="KinematicBody2D" method="_on_Ball_body_entered"]
 [connection signal="area_entered" from="LeftWall" to="LeftWall" method="OnAreaEntered"]

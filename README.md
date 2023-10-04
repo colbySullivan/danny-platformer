@@ -1,11 +1,10 @@
 # Pong with C#
 
-A simple Pong game. This demo shows best practices
-for game development in Godot, including
-[signals](https://docs.godotengine.org/en/latest/getting_started/step_by_step/signals.html).
+A simple Platform game using Godot.
 
 Language: [C#](https://docs.godotengine.org/en/latest/tutorials/scripting/c_sharp/index.html)
 
+# Godot
 Renderer: GLES 2
 
 Note: There is a GDScript version available [here](https://github.com/godotengine/godot-demo-projects/tree/master/2d/pong).
@@ -15,13 +14,6 @@ Note: There is a VisualScript version available [here](https://github.com/godote
 Note: There is a GDNative C++ version available [here](https://github.com/godotengine/gdnative-demos/tree/master/cpp/pong).
 
 Check out this demo on the asset library: https://godotengine.org/asset-library/asset/535
-
-## How does it work?
-
-The walls, paddle, and ball are all
-[`Area2D`](https://docs.godotengine.org/en/latest/classes/class_area2d.html)
-nodes. When the ball touches the walls or the paddles,
-they emit signals and modify the ball.
 
 ## Screenshots
 

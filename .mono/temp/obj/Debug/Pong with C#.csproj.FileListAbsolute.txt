@@ -1,0 +1,9 @@
+/Users/irishtrolls/Documents/GitHub/godot-practice/.mono/temp/bin/Debug/Pong with C#.dll
+/Users/irishtrolls/Documents/GitHub/godot-practice/.mono/temp/bin/Debug/Pong with C#.pdb
+/Users/irishtrolls/Documents/GitHub/godot-practice/.mono/temp/obj/Debug/Pong with C#.csproj.AssemblyReference.cache
+/Users/irishtrolls/Documents/GitHub/godot-practice/.mono/temp/obj/Debug/Pong with C#.GeneratedMSBuildEditorConfig.editorconfig
+/Users/irishtrolls/Documents/GitHub/godot-practice/.mono/temp/obj/Debug/Pong with C#.AssemblyInfoInputs.cache
+/Users/irishtrolls/Documents/GitHub/godot-practice/.mono/temp/obj/Debug/Pong with C#.AssemblyInfo.cs
+/Users/irishtrolls/Documents/GitHub/godot-practice/.mono/temp/obj/Debug/Pong with C#.csproj.CoreCompileInputs.cache
+/Users/irishtrolls/Documents/GitHub/godot-practice/.mono/temp/obj/Debug/Pong with C#.dll
+/Users/irishtrolls/Documents/GitHub/godot-practice/.mono/temp/obj/Debug/Pong with C#.pdb

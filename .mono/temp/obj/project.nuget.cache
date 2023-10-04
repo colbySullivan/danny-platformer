@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "hE0PxwGPnGJJv7ym+tMIOLqKCg0omYNG3R80wwP6wru8bP3uU4or4rWDZViigcF56npgqwojuxJrfFoiwGJtgw==",
+  "success": true,
+  "projectFilePath": "/Users/irishtrolls/Documents/GitHub/godot-practice/Pong with C#.csproj",
+  "expectedPackageFiles": [
+    "/Users/irishtrolls/.nuget/packages/microsoft.netframework.referenceassemblies/1.0.3/microsoft.netframework.referenceassemblies.1.0.3.nupkg.sha512",
+    "/Users/irishtrolls/.nuget/packages/microsoft.netframework.referenceassemblies.net472/1.0.3/microsoft.netframework.referenceassemblies.net472.1.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

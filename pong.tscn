@@ -1,0 +1,98 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://dannysprite.png" type="Texture" id=1]
+[ext_resource path="res://Logic/RightLeft.cs" type="Script" id=3]
+[ext_resource path="res://Logic/Ball.cs" type="Script" id=4]
+[ext_resource path="res://ball.png" type="Texture" id=5]
+[ext_resource path="res://separator.png" type="Texture" id=6]
+[ext_resource path="res://Logic/KBExample.cs" type="Script" id=7]
+[ext_resource path="res://Logic/CeilingFloor.cs" type="Script" id=8]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 4, 4 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 10, 200 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 320, 10 )
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 19.0
+height = 10.0
+
+[node name="Pong" type="Node2D"]
+
+[node name="Background" type="ColorRect" parent="."]
+margin_right = 640.0
+margin_bottom = 400.0
+color = Color( 0, 0.501961, 1, 1 )
+
+[node name="Ball" type="Area2D" parent="."]
+position = Vector2( 320.5, 191.124 )
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Ball"]
+texture = ExtResource( 5 )
+
+[node name="Collision" type="CollisionShape2D" parent="Ball"]
+shape = SubResource( 2 )
+
+[node name="Separator" type="Sprite" parent="."]
+position = Vector2( 320, 200 )
+texture = ExtResource( 6 )
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="LeftWall" type="Area2D" parent="."]
+position = Vector2( -10, 200 )
+script = ExtResource( 3 )
+
+[node name="Collision" type="CollisionShape2D" parent="LeftWall"]
+position = Vector2( 2, 0 )
+shape = SubResource( 3 )
+
+[node name="RightWall" type="Area2D" parent="."]
+position = Vector2( 650, 200 )
+script = ExtResource( 3 )
+
+[node name="Collision" type="CollisionShape2D" parent="RightWall"]
+position = Vector2( -1, 0 )
+shape = SubResource( 3 )
+
+[node name="Ceiling" type="Area2D" parent="."]
+position = Vector2( 320, -10 )
+script = ExtResource( 8 )
+
+[node name="Collision" type="CollisionShape2D" parent="Ceiling"]
+shape = SubResource( 4 )
+
+[node name="Floor" type="Area2D" parent="."]
+position = Vector2( 320, 410 )
+script = ExtResource( 8 )
+_bounceDirection = -1
+
+[node name="Collision" type="CollisionShape2D" parent="Floor"]
+position = Vector2( 1, 0 )
+shape = SubResource( 4 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+script = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+position = Vector2( 245, 265 )
+shape = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="KinematicBody2D"]
+position = Vector2( 245, 263 )
+scale = Vector2( 0.818359, 0.697266 )
+texture = ExtResource( 1 )
+hframes = 4
+vframes = 4
+frame = 1
+
+[connection signal="area_entered" from="LeftWall" to="LeftWall" method="OnAreaEntered"]
+[connection signal="area_entered" from="RightWall" to="RightWall" method="OnAreaEntered"]
+[connection signal="area_entered" from="Ceiling" to="Ceiling" method="OnAreaEntered"]
+[connection signal="area_entered" from="Floor" to="Floor" method="OnAreaEntered"]
+[connection signal="child_entered_tree" from="KinematicBody2D/CollisionShape2D" to="Ball" method="_on_CollisionShape2D_child_entered_tree"]

@@ -7,11 +7,12 @@ public class Character : KinematicBody2D
 	public delegate void playerHit();
 	
 	[Export]
-	public int JumpImpulse { get; set; } = -2000;
+	public int JumpImpulse { get; set; } = -3000; 
+	bool insideWalls = true;
 	
 	private AnimatedSprite _animatedSprite;
 	
-	public int Speed = 250;
+	public int Speed = 500;
 	private Vector2 _velocity = new Vector2();
 
 	public void GetInput(bool insideWalls)
@@ -41,22 +42,21 @@ public class Character : KinematicBody2D
 		{
 			_velocity.y = JumpImpulse;
 		}
-		// Once on floor stop gravity
-		else if(insideWalls){
-			_velocity.y += 100;
-		}
 	}
 
 	public override void _PhysicsProcess(float delta)
 	{
-		bool insideWalls = true;
+		if(insideWalls){
+			_velocity.y += 250;
+		}
 		var collision = MoveAndCollide(_velocity * delta);
 		if (collision != null){
 			GD.Print("On floor");
 			insideWalls = false;
 		}
+		else 
+			insideWalls = true;
 		GetInput(insideWalls);
-		//MoveAndCollide(_velocity * delta);
 	}
 	private void _on_Ball_body_entered(object body)
 	{

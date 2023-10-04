@@ -1,6 +1,6 @@
 using Godot;
 
-public class RightLeft : Area2D
+public class RightWall : Area2D
 {
 	[Export]
 	private int _bounceDirection = 1;

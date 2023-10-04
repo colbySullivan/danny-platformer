@@ -1,10 +1,13 @@
 using Godot;
 using System;
 
-public class KBExample : KinematicBody2D
+public class Character : KinematicBody2D
 {
 	[Signal]
 	public delegate void playerHit();
+	
+	[Export]
+	public int JumpImpulse { get; set; } = -2000;
 	
 	private AnimatedSprite _animatedSprite;
 	
@@ -17,8 +20,7 @@ public class KBExample : KinematicBody2D
 		
 		// Detect up/down/left/right keystate and only move when pressed
 		_velocity = new Vector2();
-		if(IsOnFloor())
-			GD.Print("On floor");
+		
 		if (Input.IsActionPressed("ui_right"))
 		{
 			_velocity.x += Speed;
@@ -36,10 +38,13 @@ public class KBExample : KinematicBody2D
 			_animatedSprite.Play("down");
 		}
 			
-		if (Input.IsActionPressed("ui_up"))
+		if (!insideWalls && Input.IsActionPressed("ui_select"))
 		{
-			_velocity.y -= Speed;
-			_animatedSprite.Play("up");
+			_velocity.y = JumpImpulse;
+		}
+		// Once on floor stop gravity
+		else if(insideWalls){
+			_velocity.y += 50;
 		}
 	}
 
@@ -48,16 +53,19 @@ public class KBExample : KinematicBody2D
 		bool insideWalls = true;
 		var collision = MoveAndCollide(_velocity * delta);
 		if (collision != null){
-			GD.Print("On wall");
-			insideWalls = true;
+			GD.Print("On floor");
+			insideWalls = false;
 		}
 		GetInput(insideWalls);
 		//MoveAndCollide(_velocity * delta);
 	}
 	private void _on_Ball_body_entered(object body)
 	{
-		// Ball resets when player is hit
-		EmitSignal("playerHit");
-		GD.Print("Collided");
+		if (body is Ball ball){
+			// Ball resets when player is hit
+			EmitSignal("playerHit");
+			GD.Print("Collided");
+		}
+		
 	}
 }

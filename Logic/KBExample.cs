@@ -3,6 +3,9 @@ using System;
 
 public class KBExample : KinematicBody2D
 {
+	[Signal]
+	public delegate void playerHit();
+	
 	public int Speed = 250;
 	private Vector2 _velocity = new Vector2();
 
@@ -32,12 +35,12 @@ public class KBExample : KinematicBody2D
 		var collision = MoveAndCollide(_velocity * (float)delta);
 		if (collision != null)
 		{
-			Speed = 0;
 			GD.Print("I collided with ", ((Node)collision.GetCollider()).Name);
 		}
 	}
 	private void _on_Ball_body_entered(object body)
 	{
-		Speed = 0;
+		// Ball resets when player is hit
+		EmitSignal("playerHit");
 	}
 }

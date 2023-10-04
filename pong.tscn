@@ -102,3 +102,4 @@ frame = 1
 [connection signal="area_entered" from="RightWall" to="RightWall" method="OnAreaEntered"]
 [connection signal="area_entered" from="Ceiling" to="Ceiling" method="OnAreaEntered"]
 [connection signal="area_entered" from="Floor" to="Floor" method="OnAreaEntered"]
+[connection signal="playerHit" from="KinematicBody2D" to="Ball" method="Reset"]

@@ -1,4 +1,4 @@
-# Pong with C#
+# Platformer with C#
 
 A simple Platform game using Godot.
 

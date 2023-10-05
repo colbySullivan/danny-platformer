@@ -16,5 +16,3 @@ Note: There is a GDNative C++ version available [here](https://github.com/godote
 Check out this demo on the asset library: https://godotengine.org/asset-library/asset/535
 
 ## Screenshots
-
-![Screenshot](screenshots/pong.png)
